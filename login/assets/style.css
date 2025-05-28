@@ -1,0 +1,126 @@
+body{
+    background-color: #F9C7DD;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#big-div-login{
+    display: flex;
+    background-color: #ffffff;
+    border: solid 2.5px #F582A7;
+    border-radius: 40px;
+    max-width: 900px;
+    height: 550px;
+    overflow: hidden;
+    height: 80vh;
+    width: 80vw;
+}
+
+#bem-vindo{
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: #F582A7;
+    margin-top: 70px;
+    width: 260px;
+    text-align: center;
+}
+
+#tela-parte1{
+    width: 50%;
+    background-color: #ffffff;
+    border-radius: 40px 0 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+#tela-parte2{
+    width: 50%;
+    padding: 40px;
+    background-color: #F582A7A8;
+    border-radius: 0px 40px 40px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#form{
+    margin-top: 50px;
+}
+
+#img-logo-form{ 
+    width: 200px;
+    height: 200px;
+}
+
+.form-campos{
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.input-icon{
+    position: relative;
+    max-width: 300px;
+    margin-bottom: 15px;
+}
+
+.input-icon svg{
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.inputs-form{
+    border-radius: 10px;
+    border: solid #F582A7;
+    border-width: 2px;
+    height: 35px;
+    width: 100%;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 12px 12px 12px 40px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input:focus{
+    border: 2px solid rgb(210, 52, 110);
+    outline: none;
+    background-color: #fef6f9;
+    transition: all 0.2s ease;
+}
+
+#botao-form{
+    background-color: #F582A7;
+    border: none;
+    border-radius: 12px;
+    padding: 8px 25px;
+    width: auto;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 50px 0 0 70px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+    
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#sem-conta{
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+}
