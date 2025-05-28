@@ -1,0 +1,79 @@
+CREATE DATABASE EsterAcessorios;
+USE EsterAcessorios;
+
+CREATE TABLE Admin(
+	idAdmin INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(50) NOT NULL,
+    senha VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE Funcionario(
+	idFuncionario INT AUTO_INCREMENT PRIMARY KEY,
+    nomeFun VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    telefone VARCHAR(20),
+    cargo VARCHAR(50),
+    Admin_idAdmin INT,
+    FOREIGN KEY (Admin_idAdmin) REFERENCES Admin (idAdmin)
+);
+
+CREATE TABLE Cliente(
+	idCliente INT AUTO_INCREMENT PRIMARY KEY,
+    nomeCliente VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    senha VARCHAR(20) NOT NULL,
+    telefone VARCHAR(50)
+);
+
+CREATE TABLE Produto(
+	idProduto INT AUTO_INCREMENT PRIMARY KEY,
+    nomeProduto VARCHAR(50) NOT NULL,
+    preco DECIMAL(10,2) NOT NULL,
+    descricao VARCHAR(255),
+    quantidadeEstoque INT NOT NULL
+);
+
+CREATE TABLE Pedido(
+	idPedido INT AUTO_INCREMENT PRIMARY KEY,
+    status VARCHAR(50) NOT NULL,
+    dataPedido DATETIME NOT NULL,
+    endereco VARCHAR(255) NOT NULL,
+    formaPagamento VARCHAR(50) NOT NULL,
+    descricaoPedido VARCHAR(100),
+    Cliente_idCliente INT NOT NULL,
+    FOREIGN KEY (Cliente_idCliente) REFERENCES Cliente (idCliente)
+);
+
+CREATE TABLE produtoPedido(
+	Produto_idProduto INT NOT NULL,
+    Pedido_idPedido INT NOT NULL,
+    quantidade INT NOT NULL,
+    PRIMARY KEY (Produto_idProduto, Pedido_idPedido),
+    FOREIGN KEY (Produto_idProduto) REFERENCES Produto (idProduto),
+    FOREIGN KEY (Pedido_idPedido) REFERENCES Pedido (idPedido)
+);
+
+CREATE TABLE Carrinho(
+	idCarrinho INT AUTO_INCREMENT PRIMARY KEY,
+	Cliente_idCliente INT NOT NULL,
+    FOREIGN KEY (Cliente_idCliente) REFERENCES Cliente (idCliente)
+);
+
+CREATE TABLE carrinhoProduto(
+	Carrinho_idCarrinho INT NOT NULL,
+    Produto_idProduto INT NOT NULL,
+    quantidade INT NOT NULL,
+    PRIMARY KEY (Carrinho_idCarrinho, Produto_idProduto),
+    FOREIGN KEY (Carrinho_idCarrinho) REFERENCES Carrinho (idCarrinho),
+    FOREIGN KEY (Produto_idProduto) REFERENCES Produto (idProduto)
+);
+
+CREATE TABLE Avaliacao(
+	Cliente_idCliente INT NOT NULL,
+    Produto_idProduto INT NOT NULL,
+    idAvaliacao INT AUTO_INCREMENT PRIMARY KEY,
+    dataAvaliacao DATETIME NOT NULL,
+    comentario VARCHAR(255),
+    FOREIGN KEY (Cliente_idCliente) REFERENCES Cliente (idCliente),
+    FOREIGN KEY (Produto_idProduto) REFERENCES Produto (idProduto)
+);
