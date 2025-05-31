@@ -1,29 +1,35 @@
 <?php
 include_once "conexao.php";
-include_once "Usuario.class.php";
-
 session_start();
 
-if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['senha']) && !empty($_POST['senha'])) {
 
+if (isset($_POST['email'], $_POST['senha'])) {
 
-    $u = new Usuario();
+    $email = trim($_POST['email']);
+    $senha = trim($_POST['senha']);
 
-    $email = addslashes($_POST['email']);
-    $senha = addslashes($_POST['senha']);
-
-    if($u->login($email, $senha) === true){
-        if(isset($_SESSION["idadmin"])){
-            header("Location: index.php");
-        }else{
-            echo "Email ou senha incorretos, tente novamente.";
-            die;
-        };
-    }else{
+    if(empty($email)){
+        $_SESSION['mensagemErro'] = "Preencha seu email";
         header("Location: login.php");
-    };
-}else{
-    header("Location: login.php");
-}
+    }elseif(empty($senha)){
+        $_SESSION['mensagemErro'] = "Preencha sua senha";
+        header("Location: login.php");
+    }else{
 
+        $sql = "SELECT * FROM Admin WHERE email = :email";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':email' => $email]);
+
+        $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if($admin && password_verify($senha, $admin['senha'])){
+                $_SESSION['id'] = $admin['idAdmin'];
+                header("Location: index.php");
+                exit;
+            } else{
+                header("Location: login.php?erro=1");
+                exit;
+            }
+    }
+}
 ?>
