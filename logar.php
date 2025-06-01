@@ -9,10 +9,10 @@ if (isset($_POST['email'], $_POST['senha'])) {
     $senha = trim($_POST['senha']);
 
     if(empty($email)){
-        $_SESSION['mensagemErro'] = "Preencha seu email";
+        $_SESSION['mensagemErro'] = "Preencha seu email!";
         header("Location: login.php");
     }elseif(empty($senha)){
-        $_SESSION['mensagemErro'] = "Preencha sua senha";
+        $_SESSION['mensagemErro'] = "Preencha sua senha!";
         header("Location: login.php");
     }else{
 

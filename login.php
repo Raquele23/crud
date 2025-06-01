@@ -20,7 +20,21 @@
         </div>
         <div id="tela-parte2">
             <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#ffffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-user-round-icon lucide-circle-user-round"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg>
+
+            <?php
+            $mensagemErro = $_SESSION['mensagemErro'] ?? '';
+            unset($_SESSION['mensagemErro']);
+
+            if(!empty($mensagemErro)){
+                echo '<p class="mensagem-erro">' . htmlspecialchars($mensagemErro) . '</p>';
+            }
+            ?>
             
+            <?php
+            if (isset($_GET['erro']) && $_GET['erro'] == 1) {
+                echo '<p class="mensagem-erro">E-mail ou senha incorretos!</p>';
+            }
+            ?>
 
             <form action="logar.php" method="POST" id="form">
                 <label for="email" class="form-campos">Email:</label>
@@ -36,21 +50,7 @@
                 </div>
                 <button type="submit" id="botao-form">Entrar</button>
             </form>
-
             
-            <?php
-
-            if (isset($_GET['erro']) && $_GET['erro'] == 1) {
-                echo '<p style="font-family: \'Poppins\', sans-serif;">E-mail ou senha incorretos.</p>';
-            }
-            
-            $mensagemErro = $_SESSION['mensagemErro'] ?? '';
-            unset($_SESSION['mensagemErro']);
-
-            if(!empty($mensagemErro)){
-                echo '<p style="font-family: \'Poppins\', sans-serif;">' . htmlspecialchars($mensagemErro) . '<p>';
-            }
-            ?>
             
             <p id="sem-conta">Não tem uma conta? Cadastre-se agora</p>
         </div>
