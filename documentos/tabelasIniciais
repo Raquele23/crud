@@ -77,3 +77,6 @@ CREATE TABLE Avaliacao(
     FOREIGN KEY (Cliente_idCliente) REFERENCES Cliente (idCliente),
     FOREIGN KEY (Produto_idProduto) REFERENCES Produto (idProduto)
 );
+
+ALTER TABLE Admin
+MODIFY COLUMN senha VARCHAR(255) NOT NULL;
