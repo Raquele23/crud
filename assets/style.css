@@ -12,7 +12,6 @@ body{
     border: solid 2.5px #F582A7;
     border-radius: 40px;
     max-width: 900px;
-    height: 550px;
     overflow: hidden;
     height: 80vh;
     width: 80vw;
@@ -36,14 +35,14 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding: 20px;
 }
 
 #tela-parte2{
     width: 50%;
-    padding: 40px;
+    padding: 20px;
     background-color: #F582A7A8;
-    border-radius: 0px 40px 40px 0px;
+    border-radius: 0px 38px 38px 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,7 +95,6 @@ input:focus{
     border: 2px solid rgb(210, 52, 110);
     outline: none;
     background-color: #fef6f9;
-    transition: all 0.2s ease;
 }
 
 #botao-form{
@@ -104,18 +102,24 @@ input:focus{
     border: none;
     border-radius: 12px;
     padding: 8px 25px;
-    width: auto;
     color: white;
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
-    margin: 50px 0 0 70px;
+    margin: 30px 0px 10px 0px;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
     
 
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.mensagem-erro{
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    margin: 15px 0 -25px 0;
+    text-align: center;
 }
 
 #sem-conta{

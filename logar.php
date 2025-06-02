@@ -11,9 +11,11 @@ if (isset($_POST['email'], $_POST['senha'])) {
     if(empty($email)){
         $_SESSION['mensagemErro'] = "Preencha seu email!";
         header("Location: login.php");
+        exit;
     }elseif(empty($senha)){
         $_SESSION['mensagemErro'] = "Preencha sua senha!";
         header("Location: login.php");
+        exit;
     }else{
 
         $sql = "SELECT * FROM Admin WHERE email = :email";
@@ -23,7 +25,7 @@ if (isset($_POST['email'], $_POST['senha'])) {
         $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if($admin && password_verify($senha, $admin['senha'])){
-                $_SESSION['id'] = $admin['idAdmin'];
+                $_SESSION['idAdmin'] = $admin['idAdmin'];
                 header("Location: index.php");
                 exit;
             } else{
