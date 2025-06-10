@@ -56,7 +56,8 @@
                 <button type="submit" id="botao-form">Entrar</button>
             </form>
             
-            <p id="sem-conta">Não tem uma conta? Cadastre-se agora</p>
+            <p id="sem-conta">Não tem uma conta? 
+            <a href="cadastroAdm.php">Cadastre-se agora</a></p>
         </div>
     </div>
 </body>

@@ -128,3 +128,8 @@ input:focus{
     font-weight: 500;
     font-size: 13px;
 }
+
+#sem-conta a{
+    color: #D94F7B;
+    text-decoration: none;
+}

@@ -1,5 +1,5 @@
 <?php
-include_once "protecao.php";
+include_once "../protecao.php";
 ?>
 
 <!DOCTYPE html>
@@ -11,5 +11,8 @@ include_once "protecao.php";
 </head>
 <body>
     <h1>Huuuuullllll</h1>
+    <div>
+        <li><a href="logout.php">Logout</a></li>
+    </div>
 </body>
 </html>

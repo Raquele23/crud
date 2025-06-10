@@ -26,7 +26,7 @@ if (isset($_POST['email'], $_POST['senha'])) {
 
             if($admin && password_verify($senha, $admin['senha'])){
                 $_SESSION['idAdmin'] = $admin['idAdmin'];
-                header("Location: index.php");
+                header("Location: admin/inicio.php");
                 exit;
             } else{
                 header("Location: login.php?erro=1");

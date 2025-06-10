@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="POST">
+    <form action="inserir.php" method="POST">
         <label for="nomeProduto">Nome:</label>
         <input type="text" name="nomeProduto" id="nomeProduto">
 
