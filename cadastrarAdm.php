@@ -12,10 +12,6 @@ if (!$email || !$senha){
     exit("Por favor, preencha todos os campos");
 }
 
-if (!filter_var($email, FiLTER_VALIDATE_EMAIL)){
-    exit("Email inválido");
-}
-
 $stmtVerificando = $pdo->prepare("SELECT idAdmin FROM Admin WHERE email = :email");
 
 $stmtVerificando->execute([':email' => $email]);
