@@ -18,6 +18,7 @@
 
         <label for="quantEstoque">Quantidade em estoque:</label>
         <input type="number" name="quantEstoque" id="quantEstoque">
+        
         <button type="submit">CADASTRAR</button>
     </form>
 </body>
