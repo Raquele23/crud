@@ -1,3 +1,7 @@
+<?php
+include_once "protecao.php";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

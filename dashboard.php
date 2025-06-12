@@ -12,6 +12,7 @@ include_once "protecao.php";
 <body>
     <h1>Huuuuullllll</h1>
     <div>
+        <li><a href="listagemProdutos.php">Produtos</a></li>
         <li><a href="logout.php">Logout</a></li>
     </div>
 </body>
