@@ -6,7 +6,7 @@
     <title>Cadastro de produtos</title>
 </head>
 <body>
-    <form action="inserir.php" method="POST" enctype="multipart/form-data">
+    <form action="inserirProdutos.php" method="POST" enctype="multipart/form-data">
         <label for="nomeProduto">Nome:</label>
         <input type="text" name="nomeProduto" id="nomeProduto">
 

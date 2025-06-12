@@ -1,12 +1,12 @@
 <?php
-include_once "../../conexao.php";
+include_once "conexao.php";
 
 $stmt = $pdo->query("SELECT * FROM Produto");
 $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

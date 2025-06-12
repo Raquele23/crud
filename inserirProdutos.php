@@ -1,5 +1,5 @@
 <?php
-include_once "../../conexao.php";
+include_once "conexao.php";
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -36,7 +36,7 @@ if (
     }
 
     
-    $diretorioUpload = __DIR__ . '/imagens/';
+    $diretorioUpload = __DIR__ . '/assets/imagensProdutos/';
     $nomeArquivo = uniqid('img_') . '.' . $extensaoArquivo;
     $caminhoCompleto = $diretorioUpload . $nomeArquivo;
 
@@ -54,7 +54,7 @@ if (
 
     if ($stmt->execute()) {
         // echo "Produto inserido com sucesso!";
-        header("Location: listagem.php");
+        header("Location: listagemProdutos.php");
         exit;
     } else {
         echo "Erro ao inserir o produto.";
