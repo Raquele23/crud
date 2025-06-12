@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro de produtos</title>
 </head>
 <body>
-    <form action="inserir.php" method="POST">
+    <form action="inserir.php" method="POST" enctype="multipart/form-data">
         <label for="nomeProduto">Nome:</label>
         <input type="text" name="nomeProduto" id="nomeProduto">
 
@@ -18,6 +18,9 @@
 
         <label for="quantEstoque">Quantidade em estoque:</label>
         <input type="number" name="quantEstoque" id="quantEstoque">
+
+        <label for="imagemProduto">Imagem do Produto:</label>
+        <input type="file" name="imagemProduto" id="imagemProduto" accept="image/*">
         
         <button type="submit">CADASTRAR</button>
     </form>
