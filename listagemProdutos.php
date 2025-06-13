@@ -20,13 +20,16 @@ include_once "protecao.php";
         if ($stmt->execute()){
             while ($produto = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
 
-                <img src="assets/imagensProdutos/<?= htmlspecialchars($produto['imagem']) ?>" alt="<?= htmlspecialchars($produto['nomeProduto']) ?>">
-                <p>Nome:<?= htmlspecialchars($produto['nomeProduto'])?></p>
-                <p>Preço: R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
-                <p>Descrição: <?= nl2br(htmlspecialchars($produto['descricao'])) ?></p>
-                <p>Estoque: <?= htmlspecialchars($produto['quantidadeEstoque']) ?></p>
+                <div>
+                    <img src="assets/imagensProdutos/<?= htmlspecialchars($produto['imagem']) ?>" alt="<?= htmlspecialchars($produto['nomeProduto']) ?>">
+                    <p>Nome:<?= htmlspecialchars($produto['nomeProduto'])?></p>
+                    <p>Preço: R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
+                    <p>Descrição: <?= nl2br(htmlspecialchars($produto['descricao'])) ?></p>
+                    <p>Estoque: <?= htmlspecialchars($produto['quantidadeEstoque']) ?></p>
 
-                <a href="deleteProdutos.php">Excluir</a>
+                    <a href="deleteProdutos.php?id=<?= $produto['idProduto']?>">Excluir</a>
+                    <a href="alterarProdutos.php?act=upd&id=<?= $produto['idProduto'] ?>">Alterar</a>
+                </div>
 
                 <?php
             }
