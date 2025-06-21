@@ -330,3 +330,57 @@ input:focus{
 
 /* Tela de cadastrar produtos */
 
+.cadastro{
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.form-container {
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 500px;
+}
+
+.titulo{
+    color: #D94F7B;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 22px;
+}
+
+.label{
+    font-weight: 550;
+    color: #772D06;
+    display: block;
+    margin-top: 20px; 
+}
+
+.inputs{
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 8px;
+    box-sizing: border-box; 
+}
+
+.button-cadastrar{
+    background-color: #D94F7B;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    margin-top: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.button-cadastrar:hover{
+    background-color: #F582A7;
+}
