@@ -10,7 +10,11 @@ include_once "protecao.php";
     <title>Cadastro de produtos</title>
 </head>
 <body>
-    <form action="inserirProdutos.php" method="POST" enctype="multipart/form-data">
+    <?php if (isset($_GET['erro'])): ?>
+        <p style="color: red;"><?php echo htmlspecialchars($_GET['erro']); ?></p>
+    <?php endif; ?>
+
+    <form action="cadastrarProdutos.php" method="POST" enctype="multipart/form-data">
         <label for="nomeProduto">Nome:</label>
         <input type="text" name="nomeProduto" id="nomeProduto">
 

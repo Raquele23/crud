@@ -12,6 +12,7 @@ include_once "protecao.php";
 </head>
 <body>
     <h1>Produtos Cadastrados</h1>
+    <a href="cadastroProdutos.php">Cadastrar produtos</a>
 
     <?php 
     try {
