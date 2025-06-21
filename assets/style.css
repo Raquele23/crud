@@ -1,4 +1,12 @@
-body{
+/* Tela de cadastro e login */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cadastro-login{
     background-color: #F9C7DD;
     height: 100vh;
     display: flex;
@@ -133,3 +141,192 @@ input:focus{
     color: #D94F7B;
     text-decoration: none;
 }
+
+/* Sidebar e navs*/
+
+.nav1{
+    background-color: #F9C7DD;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+}
+
+.logo{
+    height: 45px;
+    width: 100px;
+}
+
+.nav2{
+    background-color: #F582A7;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    padding: 8px;
+    font-weight: 600;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-icon{
+    cursor: pointer;
+}
+
+.sidebar{
+    background-color: #F582A7;
+    width: 180px;
+    min-height: 100vh;
+    color: white;
+    padding: 20px;
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    flex-shrink: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 20px 0;
+}
+
+.sidebar a{
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar a.ativo {
+    background-color: #D94F7B; 
+    padding: 6px 7px;
+    border-radius: 8px;
+    color: white;
+    display: block;
+    display: flex;
+    text-align: center;
+}
+
+
+/* Tela de listagem produtos */
+
+.container{
+    display: flex;
+}
+
+.conteudo-principal{
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-right: 30px;
+    padding: 10px;
+    flex: 1;
+    font-family: "Poppins", sans-serif;
+}
+
+.produtos-cadastrar h1{
+    color: #D94F7B;
+    font-weight: 500;
+    font-size: 28px;
+}
+
+.produtos-cadastrar{
+    display: flex;
+    justify-content:space-between;
+}
+
+.botao-cadastrar{
+    background-color: #D94F7B;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.botao-cadastrar:hover {
+    opacity: 0.85;
+}
+
+.card-produto{
+    display: flex;
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.img-produto{
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.info{
+    display: grid;
+    grid-template-columns: 180px 200px 180px 200px 100px; 
+    gap: 10px;
+    align-items: start;
+    width: 100%;
+}
+
+.info p {
+    margin: 6px 15px;
+    color: #772D06;
+}
+
+.info p strong {
+    color: rgba(119, 45, 6, 0.9);
+}
+
+.acoes {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.editar {
+    background-color: #3FC53F;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: center;
+    width: 80px;
+}
+
+.excluir {
+    background-color: #D24747;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: center;
+    width: 80px;
+}
+
+.editar:hover,
+.excluir:hover {
+    opacity: 0.9;
+}
+
+/* Tela de cadastrar produtos */
+
