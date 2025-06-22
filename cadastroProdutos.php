@@ -14,12 +14,21 @@ include_once "protecao.php";
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body class="cadastro">
+    <div class="link-voltar">
+        <a href="listagemProdutos.php"> ← Voltar</a>
+    </div>
     <div class="form-container">
-        <?php if (isset($_GET['erro'])): ?>
-            <p style="color: red;"><?php echo htmlspecialchars($_GET['erro']); ?></p>
-        <?php endif; ?>
-    
         <p class="titulo">Cadastre seu produto</p>
+
+        <?php if (isset($_GET['sucesso'])): ?>
+            <div class="mensagem-sucesso">
+                <?php echo htmlspecialchars($_GET['sucesso']); ?>
+            </div>
+        <?php elseif (isset($_GET['erro'])): ?>
+            <div class="mensagem-erro">
+                <?php echo htmlspecialchars($_GET['erro']); ?>
+            </div>
+        <?php endif; ?>
 
         <form action="cadastrarProdutos.php" method="POST" enctype="multipart/form-data">
             <label for="nomeProduto" class="label">Nome:</label>
@@ -29,7 +38,7 @@ include_once "protecao.php";
             <input type="number" name="preco" id="preco" class="inputs">
 
             <label for="descricao" class="label">Descrição:</label>
-            <input type="textaerea" name="descricao" id="descricao" class="inputs">
+            <input type="text" name="descricao" id="descricao" class="inputs">
 
             <label for="quantEstoque" class="label">Quantidade em estoque:</label>
             <input type="number" name="quantEstoque" id="quantEstoque" class="inputs">
