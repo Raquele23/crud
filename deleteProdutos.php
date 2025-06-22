@@ -1,18 +1,21 @@
 <?php
-include "conexao.php"; // ou seu arquivo de conexão
+include "conexao.php";
+
 $id = $_GET['id'] ?? '';
 
 if ($id !== '') {
     try {
-        $stmt = $pdo->prepare("DELETE FROM Produto WHERE idProduto = ?");
-        $stmt->bindParam(1, $id, PDO::PARAM_INT);
+        $stmt = $pdo->prepare("DELETE FROM Produto WHERE idProduto = :id");
+        $stmt->bindValue(':id', $id);
         $stmt->execute();
-        echo "Produto excluído com sucesso!";
-    } catch (PDOException $erro) {
-        echo "Erro ao excluir: " . $erro->getMessage();
-    }
-}
 
-header("Location: index.php");
-exit;
-?>
+        header("Location: listagemProdutos.php?sucesso=Produto excluído com sucesso!");
+        exit;
+    } catch (PDOException $erro) {
+        header("Location: listagemProdutos.php?erro=" . urlencode("Erro ao excluir: " . $erro->getMessage()));
+        exit;
+    }
+}else {
+    header("Location: listagemProdutos.php?erro=" . urlencode("Id inválido para exclusão."));
+    exit;
+}

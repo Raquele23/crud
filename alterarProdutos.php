@@ -11,8 +11,8 @@ $imagem = '';
 
 if (isset($_GET['act']) && $_GET['act'] === 'upd' && $id !== '') {
     try {
-        $stmt = $pdo->prepare("SELECT * FROM Produto WHERE idProduto = ?");
-        $stmt->bindParam(1, $id, PDO::PARAM_INT);
+        $stmt = $pdo->prepare("SELECT * FROM Produto WHERE idProduto = :id");
+        $stmt->bindValue(':id', $id);
         $stmt->execute();
         $produto = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -30,38 +30,53 @@ if (isset($_GET['act']) && $_GET['act'] === 'upd' && $id !== '') {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Atualizar produto</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
-    <form method="post" enctype="multipart/form-data">
-    <input type="hidden" name="idProduto" value="<?= htmlspecialchars($id) ?>">
+<body class="cadastrar-atualizar">
 
-    <label>Nome:</label>
-    <input type="text" name="nomeProduto" value="<?= htmlspecialchars($nomeProduto) ?>"><br>
+    <div class="link-voltar">
+        <a href="listagemProdutos.php"> ← Voltar</a>
+    </div>
 
-    <label>Descrição:</label>
-    <textarea name="descricao"><?= htmlspecialchars($descricao) ?></textarea><br>
+    <div class="form-container">
+        <p class="titulo">Atualize seu produto</p>
 
-    <label>Preço:</label>
-    <input type="text" name="preco" value="<?= htmlspecialchars($preco) ?>"><br>
+        <?php if (isset($_GET['erro'])): ?>
+            <div class="mensagem-erro"><?= htmlspecialchars($_GET['erro']) ?></div>
+        <?php endif; ?>
 
-    <label>Quantidade em estoque:</label>
-    <input type="number" name="quantidadeEstoque" value="<?= htmlspecialchars($quantidadeEstoque) ?>"><br>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="idProduto" value="<?= htmlspecialchars($id) ?>">
 
-    <label>Imagem:</label>
-    <input type="file" name="imagem"><br>
-    <img src="assets/imagensProdutos/<?= htmlspecialchars($imagem) ?>" width="100"><br>
+            <label class="label">Nome:</label>
+            <input type="text" name="nomeProduto" value="<?= htmlspecialchars($nomeProduto) ?>" class="inputs">
 
-    <input type="submit" name="salvar" value="Salvar">
-</form>
+            <label class="label">Descrição:</label>
+            <input name="descricao" value="<?= htmlspecialchars($descricao) ?>" class="inputs">
+
+            <label class="label">Preço:</label>
+            <input type="text" name="preco" value="<?= htmlspecialchars($preco) ?>" class="inputs">
+
+            <label class="label">Quantidade em estoque:</label>
+            <input type="number" name="quantidadeEstoque" value="<?= htmlspecialchars($quantidadeEstoque) ?>" class="inputs">
+
+            <label class="label">Imagem:</label>
+            <input type="file" name="imagem" class="inputs">
+        
+            <button type="submit" name="salvar" class="button-cadastrar">Salvar</button>
+        </form>
+    </div>
 </body>
 </html>
 
 <?php
+$imagemExistente = $imagem;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idProduto = $_POST['idProduto'];
     $nome = $_POST['nomeProduto'];
@@ -69,21 +84,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $preco = $_POST['preco'];
     $quantidadeEstoque = $_POST['quantidadeEstoque'];
 
-    // Lógica da imagem (simples - opcional)
-    $imagem = $produto['imagem'];
-    if ($_FILES['imagem']['name'] !== '') {
-        $imagem = $_FILES['imagem']['name'];
+    $imagem = $imagemExistente;
+
+    if (!empty($_FILES['imagem']['name'])) {
+        $imagem = uniqid() . '_' . $_FILES['imagem']['name'];
         move_uploaded_file($_FILES['imagem']['tmp_name'], 'assets/imagensProdutos/' . $imagem);
-    }
+    } 
 
     try {
-        $stmt = $pdo->prepare("UPDATE Produto SET nomeProduto=?, descricao=?, preco=?, quantidadeEstoque=?, imagem=? WHERE idProduto=?");
-        $stmt->execute([$nome, $descricao, $preco, $quantidadeEstoque, $imagem, $idProduto]);
-        echo "Produto atualizado com sucesso!";
-        header("Location: index.php");
+        $stmt = $pdo->prepare("UPDATE Produto SET nomeProduto = :nome, descricao = :descricao, preco = :preco, quantidadeEstoque = :estoque, imagem = :imagem WHERE idProduto = :id");
+        $stmt->bindValue(':nome', $nome);
+        $stmt->bindValue(':descricao', $descricao);
+        $stmt->bindValue(':preco', $preco);
+        $stmt->bindValue(':estoque', $quantidadeEstoque);
+        $stmt->bindValue(':imagem', $imagem);
+        $stmt->bindValue(':id', $idProduto);
+
+        $stmt->execute();
+
+        header("Location: listagemProdutos.php?sucesso=Produto atualizado com sucesso!");
         exit;
     } catch (PDOException $erro) {
-        echo "Erro ao atualizar: " . $erro->getMessage();
+        header("Location: atualizarProduto.php?act=upd&id=$id&erro=Erro ao atualizar: " . urlencode($erro->getMessage()));
+        exit;
     }
 }
+
 ?>
