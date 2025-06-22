@@ -384,3 +384,31 @@ input:focus{
 .button-cadastrar:hover{
     background-color: #F582A7;
 }
+
+.mensagem-sucesso {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #c3e6cb;
+    margin-bottom: 15px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.mensagem-erro {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 15px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.link-voltar{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
