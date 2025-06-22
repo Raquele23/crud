@@ -328,9 +328,9 @@ input:focus{
     opacity: 0.9;
 }
 
-/* Tela de cadastrar produtos */
+/* Tela de cadastrar e atualizar */
 
-.cadastro{
+.cadastrar-atualizar{
     font-family: "Poppins", sans-serif;
     display: flex;
     justify-content: center;
