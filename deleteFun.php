@@ -1,7 +1,7 @@
 <?php
 include "conexao.php";
 
-$id = $_GET['id'] ?? '';
+$id = $_GET['idFuncionario'] ?? '';
 
 if ($id !== '') {
     try {
