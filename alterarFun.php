@@ -60,8 +60,8 @@ if (isset($_GET['act']) && $_GET['act'] === 'upd' && $idFuncionario !== '') {
             <label class="label">Preço:</label>
             <input type="text" name="telefone" value="<?= htmlspecialchars($telefone) ?>" class="inputs">
 
-            <label class="label">Quantidade em cargo:</label>
-            <input type="number" name="cargo" value="<?= htmlspecialchars($cargo) ?>" class="inputs">
+            <label class="label">Cargo:</label>
+            <input type="text" name="cargo" value="<?= htmlspecialchars($cargo) ?>" class="inputs">
         
             <button type="submit" name="salvar" class="button-cadastrar">Salvar</button>
         </form>

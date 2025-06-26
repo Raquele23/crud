@@ -76,8 +76,8 @@ include_once "protecao.php";
                         <p><strong>Cargo: </strong> <?= htmlspecialchars($funcionario['cargo']) ?></p>
 
                         <div class="acoes">
-                            <a class="editar" href="alterarFun.php?act=upd&id=<?= $funcionario['idFuncionario'] ?>">Editar</a>
-                            <a class="excluir" href="deleteFun.php?id=<?= $funcionario['idFuncionario']?>">Excluir</a>
+                            <a class="editar" href="alterarFun.php?act=upd&idFuncionario=<?= $funcionario['idFuncionario'] ?>">Editar</a>
+                            <a class="excluir" href="deleteFun.php?idFuncionario=<?= $funcionario['idFuncionario']?>">Excluir</a>
                         </div>
                     </div>
                 </div>
